@@ -1,0 +1,125 @@
+@import 'tailwindcss';
+
+/*
+  Design tokens (Tailwind v4 CSS-first config).
+  Everything in @theme becomes a utility, e.g. --color-surface -> `bg-surface`.
+  The app is dark-first by design: a concert teleprompter is used in the dark.
+*/
+@theme {
+  --color-bg: #0a0a0b;
+  --color-surface: #141416;
+  --color-surface-hover: #1c1c1f;
+  --color-border: #2a2a2e;
+  --color-text: #f5f5f7;
+  --color-muted: #8e8e93;
+  --color-accent: #ff3b30;
+
+  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+@layer base {
+  /* 100dvh (not 100%) so the layout tracks iOS Safari's dynamic toolbar and
+     the bottom control panel is never hidden behind it. */
+  html {
+    height: 100dvh;
+  }
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    margin: 0;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    /* Respect iOS safe areas so nothing hides under the notch / home bar. */
+    padding: env(safe-area-inset-top) env(safe-area-inset-right)
+      env(safe-area-inset-bottom) env(safe-area-inset-left);
+  }
+}
+
+/* Scroll, but with no visible scrollbar (keeps the concert view immersive). */
+@utility no-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* old Edge/IE */
+  &::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+  }
+}
+
+/* Soft top/bottom fade so lyrics dissolve near the edges of the viewport. */
+@utility lyrics-fade {
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #000 12%,
+    #000 82%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #000 12%,
+    #000 82%,
+    transparent 100%
+  );
+}
+
+/*
+  Custom seek slider. A native <input type="range"> (keyboard + a11y for free)
+  with all default chrome removed. The played portion is a left-to-right fill
+  driven by the `--pct` custom property set inline from React.
+*/
+.lc-range {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 24px; /* generous touch target */
+  background: transparent;
+  cursor: pointer;
+}
+.lc-range::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 9999px;
+  background: linear-gradient(
+    to right,
+    var(--color-text) var(--pct, 0%),
+    var(--color-surface-hover) var(--pct, 0%)
+  );
+}
+.lc-range::-moz-range-track {
+  height: 4px;
+  border-radius: 9999px;
+  background: var(--color-surface-hover);
+}
+.lc-range::-moz-range-progress {
+  height: 4px;
+  border-radius: 9999px;
+  background: var(--color-text);
+}
+.lc-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  margin-top: -5px; /* centre the thumb on the 4px track */
+  border-radius: 9999px;
+  background: var(--color-text);
+}
+.lc-range::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border: none;
+  border-radius: 9999px;
+  background: var(--color-text);
+}
+.lc-range:focus-visible {
+  outline: none;
+}
+.lc-range:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-text) 30%, transparent);
+}
+.lc-range:focus-visible::-moz-range-thumb {
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-text) 30%, transparent);
+}

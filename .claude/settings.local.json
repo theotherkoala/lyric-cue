@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm -v)",
+      "Read(//Users/zhuanggeng/Desktop/**)",
+      "Bash(npm create *)",
+      "Bash(rm -f src/App.css)",
+      "Bash(rm -rf src/assets)",
+      "Bash(mkdir -p src/routes src/features/songs/components src/features/songs src/features/teleprompter/lib src/features/teleprompter/components src/components/ui src/lib src/data public/lyrics)",
+      "Bash(npm run *)",
+      "Read(//private/tmp/**)",
+      "Bash(curl -s -o /dev/null -w \"localhost:5173 -> HTTP %{http_code}\\\\n\" http://localhost:5173/)",
+      "Bash(kill 64021)",
+      "Bash(curl -s \"http://localhost:5199/\")",
+      "Bash(curl -s -o /dev/null -w \"home /            -> HTTP %{http_code}\\\\n\" \"http://localhost:5199/\")",
+      "Bash(curl -s -o /dev/null -w \"sample .lrc file  -> HTTP %{http_code}\\\\n\" \"http://localhost:5199/lyrics/blinding-lights.lrc\")",
+      "Bash(curl -s -o /dev/null -w \"home -> HTTP %{http_code}\\\\n\" \"http://localhost:5199/\")",
+      "Bash(node *)",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git commit -q -m ' *)"
+    ]
+  }
+}
