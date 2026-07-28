@@ -1,14 +1,182 @@
 [
   {
+    "id": "wake-me-up",
+    "title": "Wake Me Up",
+    "artist": "The Weeknd",
+    "lrcFile": "/lyrics/wake-me-up.lrc"
+  },
+  {
+    "id": "after-hours",
+    "title": "After Hours",
+    "artist": "The Weeknd",
+    "lrcFile": "/lyrics/after-hours.lrc"
+  },
+  {
+    "id": "starboy",
+    "title": "Starboy",
+    "artist": "The Weeknd",
+    "lrcFile": "/lyrics/starboy.lrc"
+  },
+  {
+    "id": "heartless",
+    "title": "Heartless",
+    "artist": "The Weeknd",
+    "lrcFile": "/lyrics/heartless.lrc"
+  },
+  {
+    "id": "faith",
+    "title": "Faith",
+    "artist": "The Weeknd",
+    "lrcFile": "/lyrics/faith.lrc"
+  },
+  {
+    "id": "take-my-breath",
+    "title": "Take My Breath",
+    "artist": "The Weeknd",
+    "lrcFile": "/lyrics/take-my-breath.lrc"
+  },
+  {
+    "id": "sacrifice",
+    "title": "Sacrifice",
+    "artist": "The Weeknd",
+    "lrcFile": "/lyrics/sacrifice.lrc"
+  },
+  {
+    "id": "how-do-i-make-you-love-me",
+    "title": "How Do I Make You Love Me?",
+    "artist": "The Weeknd",
+    "lrcFile": "/lyrics/how-do-i-make-you-love-me.lrc"
+  },
+  {
+    "id": "cant-feel-my-face",
+    "title": "Can't Feel My Face",
+    "artist": "The Weeknd",
+    "lrcFile": "/lyrics/cant-feel-my-face.lrc"
+  },
+  {
+    "id": "often",
+    "title": "Often",
+    "artist": "The Weeknd",
+    "lrcFile": "/lyrics/often.lrc"
+  },
+  {
+    "id": "the-hills",
+    "title": "The Hills",
+    "artist": "The Weeknd",
+    "lrcFile": "/lyrics/the-hills.lrc"
+  },
+  {
+    "id": "timeless",
+    "title": "Timeless",
+    "artist": "The Weeknd feat. Playboi Carti",
+    "lrcFile": "/lyrics/timeless.lrc"
+  },
+  {
+    "id": "one-of-the-girls",
+    "title": "One of the Girls",
+    "artist": "The Weeknd, JENNIE & Lily-Rose Depp",
+    "lrcFile": "/lyrics/one-of-the-girls.lrc"
+  },
+  {
+    "id": "out-of-time",
+    "title": "Out of Time",
+    "artist": "The Weeknd",
+    "lrcFile": "/lyrics/out-of-time.lrc"
+  },
+  {
+    "id": "i-feel-it-coming",
+    "title": "I Feel It Coming",
+    "artist": "The Weeknd feat. Daft Punk",
+    "lrcFile": "/lyrics/i-feel-it-coming.lrc"
+  },
+  {
+    "id": "die-for-you",
+    "title": "Die for You",
+    "artist": "The Weeknd",
+    "lrcFile": "/lyrics/die-for-you.lrc"
+  },
+  {
+    "id": "is-there-someone-else",
+    "title": "Is There Someone Else?",
+    "artist": "The Weeknd",
+    "lrcFile": "/lyrics/is-there-someone-else.lrc"
+  },
+  {
     "id": "save-your-tears",
     "title": "Save Your Tears",
     "artist": "The Weeknd",
-    "lrcFile": "save-your-tears.lrc"
+    "lrcFile": "/lyrics/save-your-tears.lrc"
   },
   {
-    "id": "amazing-grace",
-    "title": "Amazing Grace",
-    "artist": "Traditional",
-    "lrcFile": "amazing-grace.lrc"
+    "id": "less-than-zero",
+    "title": "Less Than Zero",
+    "artist": "The Weeknd",
+    "lrcFile": "/lyrics/less-than-zero.lrc"
+  },
+  {
+    "id": "blinding-lights",
+    "title": "Blinding Lights",
+    "artist": "The Weeknd",
+    "lrcFile": "/lyrics/blinding-lights.lrc"
+  },
+  {
+    "id": "call-out-my-name",
+    "title": "Call Out My Name",
+    "artist": "The Weeknd",
+    "lrcFile": "/lyrics/call-out-my-name.lrc"
+  },
+  {
+    "id": "i-was-never-there",
+    "title": "I Was Never There",
+    "artist": "The Weeknd feat. Gesaffelstein",
+    "lrcFile": "/lyrics/i-was-never-there.lrc"
+  },
+  {
+    "id": "creepin",
+    "title": "Creepin'",
+    "artist": "Metro Boomin, The Weeknd & 21 Savage",
+    "lrcFile": "/lyrics/creepin.lrc"
+  },
+  {
+    "id": "earned-it",
+    "title": "Earned It",
+    "artist": "The Weeknd",
+    "lrcFile": "/lyrics/earned-it.lrc"
+  },
+  {
+    "id": "wicked-games",
+    "title": "Wicked Games",
+    "artist": "The Weeknd",
+    "lrcFile": "/lyrics/wicked-games.lrc"
+  },
+  {
+    "id": "moth-to-a-flame",
+    "title": "Moth to a Flame",
+    "artist": "Swedish House Mafia & The Weeknd",
+    "lrcFile": "/lyrics/moth-to-a-flame.lrc"
+  },
+  {
+    "id": "pray-for-me",
+    "title": "Pray for Me",
+    "artist": "The Weeknd & Kendrick Lamar",
+    "lrcFile": "/lyrics/pray-for-me.lrc"
+  },
+  {
+    "id": "love-me-harder",
+    "title": "Love Me Harder",
+    "artist": "Ariana Grande & The Weeknd",
+    "lrcFile": "/lyrics/love-me-harder.lrc"
+  },
+  {
+    "id": "popular",
+    "title": "Popular",
+    "artist": "The Weeknd, Playboi Carti & Madonna",
+    "lrcFile": "/lyrics/popular.lrc"
+  },
+  {
+    "id": "party-monster",
+    "title": "Party Monster",
+    "artist": "The Weeknd",
+    "lrcFile": "/lyrics/party-monster.lrc"
   }
 ]

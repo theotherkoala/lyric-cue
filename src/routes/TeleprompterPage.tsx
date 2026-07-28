@@ -19,7 +19,7 @@ export function TeleprompterPage() {
           to="/"
           viewTransition
           aria-label="Back to songs"
-          className="absolute left-1 px-4 py-2 text-2xl leading-none text-muted transition-colors active:text-text"
+          className="absolute left-1 rounded-lg px-4 py-2 text-2xl leading-none text-muted transition-colors active:text-text focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-text"
         >
           ‹
         </Link>

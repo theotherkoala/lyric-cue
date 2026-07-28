@@ -8,7 +8,24 @@ import type { Song } from '../features/songs/types'
  * these functions — never imports the JSON directly. If the source ever changes
  * (an API, IndexedDB, etc.) only this file changes.
  */
-const songs = songsData as Song[]
+
+/** Reject malformed rows so a bad JSON entry can't render a blank card or
+ *  point playback at a missing file. */
+function isValidSong(value: unknown): value is Song {
+  const song = value as Record<string, unknown> | null
+  return (
+    song !== null &&
+    typeof song.id === 'string' &&
+    song.id.trim() !== '' &&
+    typeof song.title === 'string' &&
+    song.title.trim() !== '' &&
+    typeof song.artist === 'string' &&
+    typeof song.lrcFile === 'string' &&
+    song.lrcFile.trim() !== ''
+  )
+}
+
+const songs = (songsData as unknown[]).filter(isValidSong)
 
 export function getSongs(): Song[] {
   return songs
@@ -20,8 +37,7 @@ export function getSongById(id: string): Song | undefined {
 
 /**
  * The song `direction` steps away from `id` in setlist order, wrapping around
- * the ends (next-of-last -> first, prev-of-first -> last). Returns undefined
- * only if `id` isn't in the setlist.
+ * the ends. Returns undefined only if `id` isn't in the setlist.
  */
 export function getAdjacentSong(id: string, direction: number): Song | undefined {
   const index = songs.findIndex((song) => song.id === id)

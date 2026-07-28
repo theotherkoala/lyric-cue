@@ -20,11 +20,17 @@ export function SongListPage() {
         </p>
       </header>
 
-      <ul className="flex flex-col gap-3">
-        {songs.map((song) => (
-          <SongRow key={song.id} song={song} />
-        ))}
-      </ul>
+      {songs.length === 0 ? (
+        <div className="rounded-2xl border border-border bg-surface px-5 py-10 text-center text-muted">
+          No songs available yet.
+        </div>
+      ) : (
+        <ul className="flex flex-col gap-3">
+          {songs.map((song) => (
+            <SongRow key={song.id} song={song} />
+          ))}
+        </ul>
+      )}
     </main>
   )
 }

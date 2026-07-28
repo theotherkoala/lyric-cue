@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { useLyrics } from '../hooks/useLyrics'
 import { usePlayback } from '../hooks/usePlayback'
 import { useCenteredScroll } from '../hooks/useCenteredScroll'
+import { useWakeLock } from '../hooks/useWakeLock'
 import { getActiveLineIndex } from '../lib/getActiveLineIndex'
 import { TeleprompterLine, type LineEmphasis } from './TeleprompterLine'
 import { PlaybackControls } from './PlaybackControls'
@@ -23,7 +24,7 @@ interface TeleprompterProps {
 function StatusMessage({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex flex-1 items-center justify-center px-6">
-      <p className="text-muted">{children}</p>
+      <p className="text-center text-muted">{children}</p>
     </div>
   )
 }
@@ -68,6 +69,7 @@ export function Teleprompter({ song }: TeleprompterProps) {
   // first lyric sits mid-screen on load. `centerKey` re-centers once lyrics
   // arrive (length 0 -> N) even if the index didn't change.
   const centeredIndex = activeIndex < 0 ? 0 : activeIndex
+  const duration = lines[lines.length - 1]?.time ?? 0
   const { containerRef, activeRef } = useCenteredScroll<HTMLButtonElement>(
     activeIndex,
     String(lines.length),
@@ -94,22 +96,35 @@ export function Teleprompter({ song }: TeleprompterProps) {
     [],
   )
 
+  // Keep the screen awake while playing; released automatically otherwise.
+  useWakeLock(isPlaying)
+
+  // Stop cleanly at the end of the lyrics instead of counting on forever.
+  useEffect(() => {
+    if (isPlaying && duration > 0 && currentTime >= duration) pause()
+  }, [isPlaying, currentTime, duration, pause])
+
   if (lyrics.status === 'loading') {
     return <StatusMessage>Loading lyrics…</StatusMessage>
   }
   if (lyrics.status === 'error') {
-    return <StatusMessage>Couldn’t load lyrics: {lyrics.message}</StatusMessage>
+    return <StatusMessage>Couldn’t load lyrics. Check your connection and try again.</StatusMessage>
   }
   if (lines.length === 0) {
     return <StatusMessage>No lyrics available for this song.</StatusMessage>
   }
 
-  const duration = lines[lines.length - 1]?.time ?? 0
   const activeProgress = lineProgressAt(lines, activeIndex, currentTime)
   const lineDurationMs = isSeeking ? SEEK_TRANSITION_MS : ADVANCE_TRANSITION_MS
 
   const handleSkip = (deltaSeconds: number) => {
     seekTo(Math.min(duration, Math.max(0, currentTime + deltaSeconds)))
+  }
+
+  // If Start is tapped after the song ended, replay from the top.
+  const handlePlay = () => {
+    if (duration > 0 && currentTime >= duration) seekTo(0)
+    play()
   }
 
   return (
@@ -139,7 +154,7 @@ export function Teleprompter({ song }: TeleprompterProps) {
         <ProgressBar currentTime={currentTime} duration={duration} onSeek={seekTo} />
         <PlaybackControls
           isPlaying={isPlaying}
-          onPlay={play}
+          onPlay={handlePlay}
           onPause={pause}
           onSkip={handleSkip}
         />

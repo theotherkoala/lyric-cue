@@ -98,7 +98,7 @@ export function TeleprompterLine({
       onClick={onSelect}
       style={{ transitionDuration: `${durationMs}ms` }}
       aria-label={isInstrumental ? 'Instrumental — jump here' : `Jump to: ${text}`}
-      className={`block w-full text-center text-3xl font-medium leading-snug outline-none will-change-transform transition-[transform,opacity,color] ease-[cubic-bezier(0.22,1,0.36,1)] ${EMPHASIS_CLASSES[emphasis]}`}
+      className={`block w-full break-words rounded-lg text-center text-3xl font-medium leading-snug outline-none transition-[transform,opacity,color] ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-text ${EMPHASIS_CLASSES[emphasis]}`}
     >
       {isInstrumental ? (
         <span aria-hidden className="text-muted">

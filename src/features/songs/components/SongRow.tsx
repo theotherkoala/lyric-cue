@@ -19,7 +19,7 @@ export function SongRow({ song }: SongRowProps) {
       <Link
         to={`/play/${song.id}`}
         viewTransition
-        className="group flex min-h-[60px] items-center justify-between gap-4 rounded-2xl border border-border bg-surface px-5 py-4 transition-[color,background-color,transform] duration-200 ease-out hover:bg-surface-hover active:bg-surface-hover motion-safe:active:scale-[0.98]"
+        className="group flex min-h-[60px] items-center justify-between gap-4 rounded-2xl border border-border bg-surface px-5 py-4 transition-[color,background-color,transform] duration-200 ease-out hover:bg-surface-hover active:bg-surface-hover motion-safe:active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-text"
       >
         <span className="text-lg font-medium">{song.title}</span>
 

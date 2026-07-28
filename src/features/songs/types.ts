@@ -4,6 +4,6 @@ export interface Song {
   id: string
   title: string
   artist: string
-  /** File name inside `public/lyrics/`, e.g. "amazing-grace.lrc" */
+  /** Public path to the .lrc file, e.g. "/lyrics/after-hours.lrc" */
   lrcFile: string
 }
