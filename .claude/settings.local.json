@@ -18,7 +18,11 @@
       "Bash(node *)",
       "Bash(git init *)",
       "Bash(git add *)",
-      "Bash(git commit -q -m ' *)"
+      "Bash(git commit -q -m ' *)",
+      "Bash(command -v gh)",
+      "Bash(echo \"gh:     $\\(command -v gh || echo 'not installed'\\)\")",
+      "Bash(command -v vercel)",
+      "Bash(echo \"vercel: $\\(command -v vercel || echo 'not installed'\\)\")"
     ]
   }
 }
